@@ -1,0 +1,4 @@
+max_seq_length : 128
+bert_path :
+  bert_base_chinese : ../bert_base_chinese
+data_type : concat
