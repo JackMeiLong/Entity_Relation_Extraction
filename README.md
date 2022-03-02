@@ -5,7 +5,7 @@ bert in entity relation extraction
 
 附件.pdf 记录上不同的模型架构
 
-训练环境：pytorch 1.1.0 cuda 10.1   
+训练环境：python 3.6.5 pytorch 1.1.0 cuda 10.1   
 硬件环境：gpu Tesla K80
 
 基本效果：  
