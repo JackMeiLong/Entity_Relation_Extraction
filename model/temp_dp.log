@@ -1,0 +1,29 @@
+nohup: ignoring input
+train_dp.py:120: YAMLLoadWarning: calling yaml.load() without Loader=... is deprecated, as the default Loader is unsafe. Please read https://msg.pyyaml.org/load for full details.
+  configs = yaml.load(conf)
+Some weights of the model checkpoint at ../bert_base_chinese were not used when initializing BertModel: ['cls.seq_relationship.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.bias', 'cls.seq_relationship.bias', 'cls.predictions.decoder.weight', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.dense.weight', 'cls.predictions.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+['module.linear_layer.0.weight', 'module.linear_layer.0.bias', 'module.linear_layer_2.0.weight', 'module.linear_layer_2.0.bias']
+/opt/anaconda3/envs/dlpy36/lib/python3.6/site-packages/torch/nn/parallel/_functions.py:61: UserWarning: Was asked to gather along dimension 0, but all input tensors were scalars; will instead unsqueeze and return a vector.
+  warnings.warn('Was asked to gather along dimension 0, but all '
+Traceback (most recent call last):
+  File "train_dp.py", line 132, in <module>
+    train_model(model, train_config, data_type, train_dataset, dev_dataset)
+  File "train_dp.py", line 63, in train_model
+    logits_y = model(input_ids, attention_mask, token_type_ids, obj_type_idx, sub_type_idx, output_y)
+  File "/opt/anaconda3/envs/dlpy36/lib/python3.6/site-packages/torch/nn/modules/module.py", line 493, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/opt/anaconda3/envs/dlpy36/lib/python3.6/site-packages/torch/nn/parallel/data_parallel.py", line 153, in forward
+    return self.gather(outputs, self.output_device)
+  File "/opt/anaconda3/envs/dlpy36/lib/python3.6/site-packages/torch/nn/parallel/data_parallel.py", line 165, in gather
+    return gather(outputs, output_device, dim=self.dim)
+  File "/opt/anaconda3/envs/dlpy36/lib/python3.6/site-packages/torch/nn/parallel/scatter_gather.py", line 67, in gather
+    return gather_map(outputs)
+  File "/opt/anaconda3/envs/dlpy36/lib/python3.6/site-packages/torch/nn/parallel/scatter_gather.py", line 62, in gather_map
+    return type(out)(map(gather_map, zip(*outputs)))
+  File "/opt/anaconda3/envs/dlpy36/lib/python3.6/site-packages/torch/nn/parallel/scatter_gather.py", line 54, in gather_map
+    return Gather.apply(target_device, dim, *outputs)
+  File "/opt/anaconda3/envs/dlpy36/lib/python3.6/site-packages/torch/nn/parallel/_functions.py", line 54, in forward
+    assert all(map(lambda i: i.is_cuda, inputs))
+AssertionError

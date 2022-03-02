@@ -1,0 +1,77 @@
+nohup: ignoring input
+train.py:109: YAMLLoadWarning: calling yaml.load() without Loader=... is deprecated, as the default Loader is unsafe. Please read https://msg.pyyaml.org/load for full details.
+  configs = yaml.load(conf)
+Some weights of the model checkpoint at ../bert_base_chinese were not used when initializing BertModel: ['cls.predictions.transform.LayerNorm.weight', 'cls.predictions.bias', 'cls.predictions.decoder.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.transform.dense.bias', 'cls.seq_relationship.weight', 'cls.seq_relationship.bias', 'cls.predictions.transform.dense.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+['module.linear_layer.0.weight', 'module.linear_layer.0.bias', 'module.linear_layer_2.0.weight', 'module.linear_layer_2.0.bias']
+step : 100, loss : 3.548093547821045, metric : 0.1515625
+step : 200, loss : 3.3756562530994416, metric : 0.2015625
+step : 300, loss : 3.2787665645281474, metric : 0.23208333333333334
+step : 400, loss : 3.208331233263016, metric : 0.254296875
+step : 500, loss : 3.1587472920417787, metric : 0.27075
+step : 600, loss : 3.124484717051188, metric : 0.2797395833333333
+epoch : 0, loss : 3.1024410197983925, metric : 0.2849347014925373, dev_loss : 2.6112393363171034, dev_metric : 0.5490252293577982
+step : 100, loss : 2.8869248914718626, metric : 0.346875
+step : 200, loss : 2.883436006307602, metric : 0.34515625
+step : 300, loss : 2.871577095190684, metric : 0.3484375
+step : 400, loss : 2.863891829252243, metric : 0.3525
+step : 500, loss : 2.861697393417358, metric : 0.352625
+step : 600, loss : 2.853423738479614, metric : 0.3528645833333333
+epoch : 1, loss : 2.8486518002268095, metric : 0.35284514925373134, dev_loss : 2.4855081036185633, dev_metric : 0.5867259174311926
+step : 100, loss : 2.811596918106079, metric : 0.3653125
+step : 200, loss : 2.7987819123268127, metric : 0.3703125
+step : 300, loss : 2.798771437803904, metric : 0.3670833333333333
+step : 400, loss : 2.7934707659482956, metric : 0.3684375
+step : 500, loss : 2.7927126088142393, metric : 0.36725
+step : 600, loss : 2.791732578674952, metric : 0.366875
+epoch : 2, loss : 2.789608059356462, metric : 0.3678638059701492, dev_loss : 2.429712094662751, dev_metric : 0.5976681957186545
+step : 100, loss : 2.769507691860199, metric : 0.3715625
+step : 200, loss : 2.7648499822616577, metric : 0.37578125
+step : 300, loss : 2.755954360961914, metric : 0.380625
+step : 400, loss : 2.758630467057228, metric : 0.3775
+step : 500, loss : 2.757871340751648, metric : 0.374875
+step : 600, loss : 2.7562539569536844, metric : 0.37463541666666667
+epoch : 3, loss : 2.7574719912970242, metric : 0.37336753731343286, dev_loss : 2.3910222622232697, dev_metric : 0.6174025229357798
+step : 100, loss : 2.7306301593780518, metric : 0.3803125
+step : 200, loss : 2.7364408707618715, metric : 0.3759375
+step : 300, loss : 2.7385483884811403, metric : 0.3771875
+step : 400, loss : 2.7329361164569854, metric : 0.38046875
+step : 500, loss : 2.7299977984428407, metric : 0.3804375
+step : 600, loss : 2.730576380491257, metric : 0.381875
+epoch : 4, loss : 2.7290441224824136, metric : 0.38199626865671643, dev_loss : 2.371054292818822, dev_metric : 0.63154625382263
+step : 100, loss : 2.724075584411621, metric : 0.385625
+step : 200, loss : 2.722774806022644, metric : 0.38828125
+step : 300, loss : 2.7180892674128216, metric : 0.3929166666666667
+step : 400, loss : 2.72221825838089, metric : 0.389140625
+step : 500, loss : 2.7215633792877196, metric : 0.387875
+step : 600, loss : 2.7223559574286145, metric : 0.38619791666666664
+epoch : 5, loss : 2.721480567063858, metric : 0.3868936567164179, dev_loss : 2.353441530775951, dev_metric : 0.6387614678899083
+step : 100, loss : 2.6629234981536865, metric : 0.4078125
+step : 200, loss : 2.690096572637558, metric : 0.39515625
+step : 300, loss : 2.6995313207308453, metric : 0.3905208333333333
+step : 400, loss : 2.7069872075319292, metric : 0.385390625
+step : 500, loss : 2.704295464515686, metric : 0.3875625
+step : 600, loss : 2.6992603043715158, metric : 0.39036458333333335
+epoch : 6, loss : 2.701618291726753, metric : 0.3895522388059702, dev_loss : 2.3405644529091836, dev_metric : 0.6397649082568807
+step : 100, loss : 2.6757561922073365, metric : 0.4028125
+step : 200, loss : 2.6923189532756804, metric : 0.3959375
+step : 300, loss : 2.6968707100550335, metric : 0.3932291666666667
+step : 400, loss : 2.692168486714363, metric : 0.395078125
+step : 500, loss : 2.687991623878479, metric : 0.398875
+step : 600, loss : 2.6929253363609313, metric : 0.3965625
+epoch : 7, loss : 2.693718837268317, metric : 0.397294776119403, dev_loss : 2.331249999343802, dev_metric : 0.6375668960244648
+step : 100, loss : 2.651374645233154, metric : 0.408125
+step : 200, loss : 2.670044958591461, metric : 0.4
+step : 300, loss : 2.6749974409739177, metric : 0.40125
+step : 400, loss : 2.6790895080566406, metric : 0.40234375
+step : 500, loss : 2.6793289136886598, metric : 0.4016875
+step : 600, loss : 2.682718033393224, metric : 0.3994270833333333
+epoch : 8, loss : 2.6813168799699243, metric : 0.40181902985074625, dev_loss : 2.320468565739623, dev_metric : 0.6535741590214067
+step : 100, loss : 2.692006542682648, metric : 0.3946875
+step : 200, loss : 2.6672506093978883, metric : 0.40703125
+step : 300, loss : 2.6735879826545714, metric : 0.40229166666666666
+step : 400, loss : 2.6793476408720016, metric : 0.399296875
+step : 500, loss : 2.6873024945259094, metric : 0.39375
+step : 600, loss : 2.686747475465139, metric : 0.39375
+epoch : 9, loss : 2.68807082816736, metric : 0.3921641791044776, dev_loss : 2.3137646363051294, dev_metric : 0.651519495412844
