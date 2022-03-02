@@ -16,10 +16,21 @@ def map_id_rel():
 
     rel2id = dict({(v, k) for k, v in id2rel.items()})
     return id2rel, rel2id
+# obj/sub 使用同一套look-up table
+def map_id_type():
+    id2type = {
+        0:'UNK', 1:'作品', 2:'学科专业', 3:'音乐专辑', 4:'影视作品', 5:'地点', 6:'歌曲', 7:'网站', 8:'出版社', 9:'目',
+        10:'图书作品', 11:'气候', 12:'历史人物', 13:'date', 14:'城市', 15:'number', 16:'text', 17:'景点', 18:'国家', 19:'网络小说',
+        20:'生物', 21:'企业', 22:'语言', 23:'学校', 24:'人物', 25:'书籍', 26:'电视综艺', 27:'机构', 28:'行政区'
+    }
 
+    type2id = dict({(v, k) for k, v in id2type.items()})
+    return id2type, type2id
 
 def load_data(data_path, mode, config, bert_type, data_type):
     id2rel, rel2id = map_id_rel()
+    id2type, type2id = map_id_type()
+
     tokenizer = BertTokenizer.from_pretrained(config['bert_path'][bert_type])
     dataset = []
 
@@ -75,6 +86,11 @@ def load_data(data_path, mode, config, bert_type, data_type):
                     data.append(bert_input['input_ids'].index(tokenizer.convert_tokens_to_ids('sub')))
                 else:
                     continue
+
+                # obj/sub entity_type 
+                data.append(type2id.get(dic['obj_type'].lower(), 0))
+                data.append(type2id.get(dic['sub_type'].lower(), 0))
+
             if data_type == 'entity_type_mask':
                 # obj_type index
                 #print(context)
@@ -87,6 +103,7 @@ def load_data(data_path, mode, config, bert_type, data_type):
                     data.append(bert_input['input_ids'].index(tokenizer.convert_tokens_to_ids('sub_{}'.format(dic['sub_type']).lower())))
                 else:
                     continue
+            
 
             dataset.append(data)
            
@@ -94,27 +111,27 @@ def load_data(data_path, mode, config, bert_type, data_type):
     #print(dataset)
     sta = Counter(np.asarray(dataset)[:,-1])
     sta = dict({(id2rel.get(k),v) for k, v in sta.items()})
-    f = open('./data_source/statistic_{0}.txt'.format(data_type),'a+',encoding='utf-8')
+    f = open('./data_source/statistic_{0}_v2.txt'.format(data_type),'a+',encoding='utf-8')
     f.write('{} data:\n'.format(mode))
     f.write('{} data {}:\n'.format(mode, len(dataset)))
     f.write(str(sta))
     f.write('\n')
     f.close()
 
-    if ~os.path.exists(os.path.join(data_path, '{}_data.npy').format(mode)):
-        np.save(os.path.join(data_path, '{}_data.npy').format(mode), dataset)
+    if ~os.path.exists(os.path.join(data_path, '{}_data_v2.npy').format(mode)):
+        np.save(os.path.join(data_path, '{}_data_v2.npy').format(mode), dataset)
     return dataset
 
 
 if __name__ == '__main__':
     data_path = './data_source'
 
-    conf_file = open('./data_config.yml', 'r', encoding='utf-8')
+    conf_file = open('./data_config_v2.yml', 'r', encoding='utf-8')
     conf = conf_file.read()
     conf_file.close()
 
     config = yaml.load(conf)
     bert_type = 'bert_base_chinese'
-    data_type = 'entity_type_mask'
+    data_type = 'entity_mask'
     load_data(data_path, 'train', config, bert_type, data_type)
     load_data(data_path, 'dev', config, bert_type, data_type)
